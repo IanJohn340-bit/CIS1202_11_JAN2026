@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enaya Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: #f1f5f9;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header with Home Picture Button and Enlarged Logo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo-home-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .home-pic-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #3b82f6;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .home-pic-btn:hover {
+            transform: scale(1.1);
+            border-color: #60a5fa;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* FIXED: Target img tags inside these divs */
+        .home-pic-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .home-placeholder {
+            font-size: 10px;
+            text-align: center;
+            color: #cbd5e1;
+            padding: 5px;
+        }
+        
+        .circular-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid #3b82f6;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* FIXED: Target img tags inside these divs */
+        .circular-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .logo-placeholder {
+            font-size: 14px;
+            text-align: center;
+            color: #cbd5e1;
+            padding: 5px;
+        }
+        
+        .logo-text {
+            font-size: 36px;
+            font-weight: 700;
+            color: #60a5fa;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-left: 10px;
+        }
+        
+        .logo-text span {
+            color: #f472b6;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background-color: rgba(30, 41, 59, 0.8);
+            color: #e2e8f0;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .about-btn:hover {
+            background-color: #3b82f6;
+        }
+        
+        .portfolio-btn:hover {
+            background-color: #8b5cf6;
+        }
+        
+        .contacts-btn:hover {
+            background-color: #10b981;
+        }
+        
+        /* Main Content */
+        main {
+            min-height: 70vh;
+            padding: 20px 0;
+        }
+        
+        .content-section {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* About Me Section - Personal Information */
+        .about-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #3b82f6;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-name {
+            font-size: 46px;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+        
+        .about-title {
+            font-size: 22px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .personal-info-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .personal-info-card h3 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+        
+        .info-content h4 {
+            color: #cbd5e1;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .info-content p {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+        
+        /* Portfolio Options Section */
+        .portfolio-options {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            color: #60a5fa;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .option-card {
+            background-color: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .option-card.guide-questions:hover {
+            border-color: #8b5cf6;
+        }
+        
+        .option-card.non-creative:hover {
+            border-color: #10b981;
+        }
+        
+        .option-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .guide-questions .option-icon {
+            background-color: #8b5cf6;
+        }
+        
+        .non-creative .option-icon {
+            background-color: #10b981;
+        }
+        
+        .option-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 15px;
+        }
+        
+        .option-description {
+            color: #cbd5e1;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .option-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+        }
+        
+        .option-btn:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Guide Questions Content */
+        .guide-content {
+            background-color: rgba(30, 41, 59, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .guide-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .guide-content h3 {
+            color: #8b5cf6;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .question-list {
+            list-style-type: none;
+        }
+        
+        .question-item {
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .question-item h4 {
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .question-item p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Non-Creative Questions Content */
+        .non-creative-content {
+            background-color: rgba(30, 41, 59, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .non-creative-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .non-creative-content h3 {
+            color: #10b981;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Contacts Section */
+        .contacts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border-top: 4px solid #10b981;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(16, 185, 129, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: #10b981;
+        }
+        
+        .contact-title {
+            font-size: 22px;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            color: #cbd5e1;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-action {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .contact-action:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #94a3b8;
+            font-size: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background-color: rgba(30, 41, 59, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+        }
+        
+        .instructions h3 {
+            color: #f472b6;
+            margin-bottom: 10px;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            background-color: rgba(30, 41, 59, 0.8);
+            color: #e2e8f0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .back-btn:hover {
+            background-color: #3b82f6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .logo-home-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .logo-text {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+            
+            .about-header {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .about-name {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .personal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+			/* Guide Questions Images */
+
+.guide-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.guide-image-container {
+    text-align: center;
+}
+
+.guide-image {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #8b5cf6;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.guide-image:hover {
+    transform: scale(1.03);
+}
+
+.image-caption {
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 14px;
+    font-style: italic;
+}
+			
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-home-container">
+          
+                <div class="home-pic-btn" id="homePicBtn">
+
+                    <img src="catO.jpg" alt="Home">
+             
+                </div>
+                
+                <div class="circular-logo" id="profileLogo">
+ 
+                    <img src="us.jpg" alt="Your Logo">
+                   
+                </div>
+                
+                <div class="logo-text">Enaya <span>Portfolio</span></div>
+            </div>
+            
+            <nav>
+                <button class="nav-btn about-btn active" data-target="about">
+                    <i class="fas fa-user"></i> About Me
+                </button>
+                <button class="nav-btn portfolio-btn" data-target="portfolio">
+                    <i class="fas fa-folder"></i> Portfolio
+                </button>
+                <button class="nav-btn contacts-btn" data-target="contacts">
+                    <i class="fas fa-address-book"></i> Contacts
+                </button>
+            </nav>
+        </header>
+        
+        <main>
+          
+            <section id="about" class="content-section active">
+                <div class="about-header">
+                    
+                    <div class="about-image">
+                        
+                        <img src="picme.jpg" alt="Your Name">
+
+                    </div>
+                    
+                    <div class="about-info">
+                        <h1 class="about-name">Enaya</h1>
+                        <h2 class="about-title">BSIT First year</h2>
+                        <p style="color: #cbd5e1; font-size: 18px; line-height: 1.6;">
+                            Welcome to my personal portfolio. Here you can find my personal information, creative works, and ways to contact me.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="personal-info-grid">
+                    <div class="personal-info-card">
+                        <h3><i class="fas fa-user-circle"></i> Personal Details</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Birthday</h4>
+                                <p>April 25, 2007</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Age</h4>
+                                <p>18 years old</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Phone Number</h4>
+                                <p>09518316408</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="personal-info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Location & Contact</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Address</h4>
+                                <p>J fortich street, The Courtyards at Banawa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>25104290@usc.edu.ph</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Nationality</h4>
+                                <p>Philipinenease</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+           
+            <section id="portfolio" class="content-section">
+                <div class="portfolio-options">
+                    <h2 class="section-title"><i class="fas fa-folder-open"></i> Portfolio Options</h2>
+                    <p class="section-description">
+                        My Mini Outputs.
+                    </p>
+                    
+                    <div class="options-container">
+                       
+                        <div class="option-card guide-questions" id="guideOption">
+                            <div class="option-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="option-title">Non-Creative Questions</h3>
+                            <p class="option-description">
+                                (ㆆ_ㆆ)
+                            </p>
+                            <button class="option-btn" id="showGuideBtn">View Guide Questions</button>
+                        </div>
+                        
+                        
+                        <div class="option-card non-creative" id="nonCreativeOption">
+                            <div class="option-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h3 class="option-title">Guide Questions</h3>
+                            <p class="option-description">
+                                (ㆆ_ㆆ)
+                            </p>
+                            <button class="option-btn" id="showNonCreativeBtn">View Non-Creative Questions</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="guide-content" id="guideContent">
+                    <h3><i class="fas fa-question-circle"></i> Non-Creative </h3>
+                    
+                    <ul class="question-list">
+                        <li class="question-item">
+                            <h4>Describe a situation where data is collected and transformed into knowledge. Explain each transformation stage.</h4>
+                            <p>We use the words data, information, and knowledge all the time, but we don't always think about how one turns into the other, A simple example of this transformation happens in school when a teacher collects and studies students’ quiz scores. This situation clearly shows how raw numbers can become something meaningful. 
+The first step is data collection. Here, the teacher gathers all the quiz scores from the class. At this point, the scores are just raw numbers like 10/20, 15/20, and 18/20. They don’t have much meaning yet because they are not organized or explained. This stage is only about gathering facts.
+The next stage is data processing , where the teachers start organizing the scores. They may arrange the numbers from highest to lowest or check for any missing data. They might also compute totals or count how many students got a certain score. By processing the data, the teacher makes the numbers easier to understand and use.
+After processing, the data becomes information. This happens when the teacher calculates the class average, identifies the highest and lowest scores, or determines how many students passed. Information answers questions like “What happened?” For example, if the average score is low, the teacher learns that many students had difficulty with the quiz.
+The final stage is knowledge creation. This is when the teacher interprets the information and tries to understand why the results look that way. Maybe the topic was too challenging, or maybe students need more review. The teacher then uses this knowledge to plan the next lesson or provide extra activities.
+Overall, this process shows how simple data turns into useful knowledge. Each stage is important, and without them, the numbers would remain meaningless.
+</p>
+
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="data1.png" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="data2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+                        
+                         <li class="question-item">
+                            <h4>Choose two areas within Computer Science (e.g., Artificial Intelligence, Cybersecurity) and discuss their importance and applications.</h4>
+                            <p>Computer science covers a huge range of fields, but two areas that have become especially important today are Artificial Intelligence (AI) and Cybersecurity. Both are developing fast, and both play major roles in how we use technology every day. Even though they focus on different things—one on making machines smarter and the other on keeping systems safe—they’re equally crucial in our increasingly digital world.
+Artificial Intelligence has been growing rapidly, and it’s easy to see why. AI can analyze massive amounts of data, recognize patterns, and even make decisions on its own. A lot of the things we use daily rely on AI, like voice assistants, shopping recommendations, and even the maps apps that help us navigate. AI is also being used in bigger, more serious ways. In healthcare, it can help doctors detect diseases earlier by analyzing medical images. In business, companies use AI to predict trends, cut costs, and make better decisions. AI can even power self-driving cars, which depend on complex algorithms to understand the world around them. Overall, AI makes tasks faster, smarter, and more efficient, which is why so many industries are investing in it.
+On the other hand, Cybersecurity focuses on protecting our systems and data from attacks. As our lives move more online—through banking, cloud storage, and remote work—the risks of cyberattacks keep growing. Cybersecurity tools like encryption, firewalls, and multi-factor authentication help protect sensitive information from hackers. This is extremely important for organizations such as hospitals, banks, and government offices, where a single breach can cause huge problems. But cybersecurity matters for regular people too. With so much personal information stored online, good security practices are essential for keeping our data private and safe.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="cybersecurityai.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="cybersecurityai2.jpg" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+                        
+                        <li class="question-item">
+                            <h4>Select an industry (e.g., healthcare, finance) and explore the role of computer systems within it.</h4>
+                            <p>The healthcare industry has become increasingly dependent on computer systems, which now play an essential role in improving patient care, streamlining operations, and supporting medical decision-making. As hospitals, clinics, and research institutions adopt more advanced technologies, computer systems have become the backbone of modern healthcare.
+One of the most important contributions of computer systems is the management of Electronic Health Records (EHRs). Instead of relying on paper files, healthcare providers use digital records to store patient information such as medical history, medications, test results, and treatment plans. EHRs make it easier for doctors and nurses to access accurate and up-to-date information, which helps reduce errors and speeds up the diagnosis and treatment process. These systems also make it possible for multiple healthcare professionals to collaborate more effectively, even if they are in different locations.
+Computer systems also support medical imaging technologies, which include X-rays, MRIs, CT scans, and ultrasounds. These machines generate digital images that physicians can analyze using specialized software. Such tools help identify diseases earlier and with greater precision, improving outcomes for patients. Many imaging systems now use computer algorithms and artificial intelligence to detect abnormalities automatically, giving doctors a valuable second opinion.
+In addition to direct patient care, computer systems play a major role in hospital administration. Systems for scheduling, billing, inventory management, and insurance processing help healthcare facilities operate more efficiently. Automated systems reduce paperwork and minimize delays, which is especially important in busy hospitals. Telemedicine platforms—made possible by computers and the internet—allow patients to communicate with doctors remotely, expanding access to care for individuals in rural or underserved communities.
+Furthermore, computer systems are essential in medical research, where they support data analysis, clinical trials, and the development of new treatments. Researchers rely on powerful computers to simulate disease progression, analyze genetic data, and test potential drug compounds.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="healthcare1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="healthcare2.jpg" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+                        
+                         <li class="question-item">
+                            <h4>Create a simple pseudocode and flowchart for a real-life scenario, like a vending machine transaction.</h4>
+                            <p>START
+
+Display "Welcome to the Vending Machine"
+Display list of items and prices
+
+INPUT itemSelection
+
+IF itemSelection is not valid THEN
+    Display "Invalid selection"
+    END
+ENDIF
+
+Display "Please insert money"
+INPUT moneyInserted
+
+IF moneyInserted < priceOfItem THEN
+    Display "Not enough money"
+    Display "Please insert additional money"
+    INPUT extraMoney
+    moneyInserted = moneyInserted + extraMoney
+ENDIF
+
+IF moneyInserted >= priceOfItem THEN
+    Dispense item
+    change = moneyInserted - priceOfItem
+    
+    IF change > 0 THEN
+        Dispense change
+    ENDIF
+    
+    Display "Thank you for your purchase!"
+ENDIF
+
+END
+
+                 ┌───────────────┐
+                 │     Start      │
+                 └───────┬───────┘
+                         │
+                         v
+             ┌──────────────────────────┐
+             │ Display items & prices   │
+             └───────────┬──────────────┘
+                         │
+                         v
+             ┌──────────────────────────┐
+             │   User selects item      │
+             └───────────┬──────────────┘
+                         │
+                         v
+           ┌──────────────────────────────┐
+           │ Is the selection valid?      │
+           └───────┬───────────┬─────────┘
+                   │ Yes       │ No
+                   v           v
+     ┌─────────────────────┐   ┌────────────────────┐
+     │ Ask for money       │   │ Display "Invalid"  │
+     └───────────┬─────────┘   └───────────┬────────┘
+                 │                         │
+                 v                         v
+      ┌──────────────────────────┐      ┌──────────┐
+      │ User inserts money       │      │   End     │
+      └─────────────┬────────────┘      └──────────┘
+                    │
+                    v
+        ┌────────────────────────────┐
+        │ Money >= price of item?    │
+        └──────────┬────────┬────────┘
+                   │ Yes    │ No
+                   v        v
+     ┌───────────────────┐  ┌────────────────────────────┐
+     │ Dispense item     │  │ Ask for extra money         │
+     └──────────┬────────┘  └────────────┬───────────────┘
+                │                        │
+                v                        v
+   ┌─────────────────────────┐   ┌───────────────────────────┐
+   │ Change needed?          │   │ Add money and recheck      │
+   └──────────┬──────────────┘   └───────────────────────────┘
+              │ Yes
+              v
+   ┌─────────────────────────┐
+   │ Dispense change         │
+   └──────────┬──────────────┘
+              │
+              v
+   ┌─────────────────────────┐
+   │ Thank user              │
+   └──────────┬──────────────┘
+              │
+              v
+          ┌──────────┐
+          │   End     │
+          └──────────┘
+
+
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="pseudocode1.png" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="pseudocode2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+                        
+                         <li class="question-item">
+                            <h4>Demonstrate the steps to convert a decimal number (e.g., 25) into binary and hexadecimal.</h4>
+                            <p>Number system conversions are a fundamental concept in computer science, as computers operate using different numerical bases depending on the task or level of abstraction. Two of the most commonly used systems in computing are the binary system, which is base 2, and the hexadecimal system, which is base 16. To better understand these conversions, it is helpful to walk through the process of converting a decimal number—such as 25—into both binary and hexadecimal formats.
+To begin with, converting decimal 25 to binary involves repeatedly dividing the number by 2, since binary numbers rely on powers of two. In this method, the remainder of each division becomes a binary digit, or bit. The process starts with dividing 25 by 2, which results in a quotient of 12 and a remainder of 1. This remainder is recorded because it represents the least significant bit. The quotient, 12, is then divided again by 2, producing a remainder of 0. This continues as 6 divided by 2 gives a remainder of 0, and 3 divided by 2 leaves a remainder of 1. Finally, dividing 1 by 2 results in a quotient of 0 and a remainder of 1, marking the end of the procedure. When the remainders are read from bottom to top, they form the binary representation of the number. Therefore, decimal 25 is written as 11001 in binary.
+The conversion from decimal to hexadecimal follows a similar process, but divisions are carried out by 16 instead of 2. Hexadecimal digits range from 0 to 9 and then A to F, where A represents 10 and F represents 15. For decimal 25, dividing by 16 yields a quotient of 1 and a remainder of 9. Since the quotient becomes 0 on the next division, the process ends, and the hexadecimal representation is simply the remainder read from bottom to top. This results in the hexadecimal value 19.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="DtoB1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="DtoB2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>Compare general-purpose software (e.g., MS Word) with specific-purpose software (e.g., payroll software) in terms of features and use cases.</h4>
+                            <p>Software can generally be divided into two major categories: general-purpose software and specific-purpose software. While both types are essential in computing, they differ significantly in design, flexibility, and the problems they aim to solve.
+General-purpose software refers to programs designed to perform a wide range of tasks. A good example is Microsoft Word, which can be used for writing essays, creating reports, designing flyers, drafting letters, or even recording simple data tables. Its features—such as formatting tools, spell check, templates, and editing options—are made to support many different types of users, from students to office workers. Because of its broad functionality, general-purpose software is highly flexible and suitable for everyday tasks. It can adapt to multiple situations, making it useful across various fields such as education, business, and personal productivity.
+In contrast, specific-purpose software (also known as specialized or custom software) is developed to carry out one particular task or serve one specific function. An example is payroll software, which is designed exclusively to manage employee salaries, calculate taxes, track attendance, and generate financial reports. Unlike general-purpose software, it includes features tailored to a single process, such as automatic tax updates or integration with HR systems. This type of software is especially valuable for businesses because it reduces errors, speeds up repetitive tasks, and ensures compliance with legal requirements. However, because it is specialized, it cannot be easily adapted for unrelated tasks.
+When comparing the two, the most obvious difference lies in flexibility versus specialization. General-purpose software offers versatility and can be used in many scenarios, while specific-purpose software provides accuracy and efficiency for a particular function. General-purpose tools are ideal for broad audiences, whereas specific-purpose applications are best for organizations or users with particular needs. Both types play important roles in computing: one by offering adaptability, and the other by delivering precision and efficiency in specialized areas.
+Together, they illustrate how software is designed to meet both general user needs and highly specific operational requirements.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>Create a labeled diagram showing IPOS devices and describe the function of each component.</h4>
+                            <p>    ┌──────────────┐
+                          │   INPUT      │
+                          │ (Keyboard,   │
+                          │  Mouse,      │
+                          │  Scanner)    │
+                          └───────┬──────┘
+                                  │
+                                  v
+                          ┌──────────────┐
+                          │  PROCESSING  │
+                          │ (CPU, ALU,   │
+                          │  Control     │
+                          │   Unit)      │
+                          └───────┬──────┘
+                                  │
+                                  v
+                          ┌──────────────┐
+                          │   OUTPUT     │
+                          │ (Monitor,    │
+                          │  Printer,    │
+                          │  Speakers)   │
+                          └───────┬──────┘
+                                  │
+                                  v
+                          ┌──────────────┐
+                          │  STORAGE     │
+                          │ (Hard Drive, │
+                          │  SSD, USB,   │
+                          │  Cloud)      │
+                          └──────────────┘
+
+The IPOS model—comprising Input, Processing, Output, and Storage—is a fundamental concept in computer systems that illustrates how data moves through a computer. Input devices allow users to enter data or commands into the system, translating human actions into digital signals the computer can understand. Common examples include keyboards for typing, mice for selecting and interacting with on-screen elements, and scanners for converting physical documents into digital form. Once the data is entered, it moves to the processing stage, where the computer’s Central Processing Unit (CPU) performs calculations, interprets instructions, and makes logical decisions. The CPU contains the Arithmetic Logic Unit (ALU), which handles mathematical and logical operations, and the Control Unit, which directs and coordinates system activities. After processing, information is sent to output devices, which present the results in a human-readable or usable form. Monitors display text, graphics, and videos, printers produce physical copies of documents, and speakers output audio signals. Finally, storage devices retain data either temporarily or permanently so it can be accessed later. Hard drives and solid-state drives provide long-term storage, USB flash drives offer portable data transfer, and cloud storage allows files to be saved and accessed over the internet. Together, these components form a complete cycle in which data is input, processed, output, and stored, demonstrating the core operations that enable computers to function efficiently.
+
+</p>
+
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="software1.png" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="software2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>Provide an overview of three different utility applications and their benefits (e.g., antivirus software, backup software).</h4>
+                            <p>Utility applications are specialized software programs designed to help manage, maintain, and optimize computer systems. Unlike general-purpose software, which focuses on performing a wide range of tasks, utility programs focus on improving system performance, ensuring security, and protecting data. Three commonly used utility applications are antivirus software, backup software, and disk cleanup tools.
+Antivirus software is designed to detect, prevent, and remove malicious programs such as viruses, spyware, and ransomware. By continuously scanning files and monitoring system activity, antivirus programs protect computers from security threats that can compromise data integrity or cause system crashes. The main benefit of antivirus software is that it safeguards sensitive information and maintains system stability, helping both individuals and organizations avoid data loss or unauthorized access.
+Backup software is another essential utility that ensures data is preserved in case of accidental deletion, hardware failure, or cyberattacks. It allows users to create copies of important files and store them on external drives, network locations, or cloud services. The primary benefit of backup software is the peace of mind it provides; users can restore lost or corrupted data quickly, minimizing downtime and preventing permanent loss of critical information. For businesses, regular backups are crucial for maintaining operations and complying with data protection regulations.
+Disk cleanup tools are utilities that help improve system performance by removing unnecessary files, temporary data, and cached information. By freeing up storage space and organizing system files, these programs can enhance the speed and responsiveness of a computer. The main benefit of disk cleanup utilities is that they maintain system efficiency and prolong the lifespan of storage devices, ensuring that the computer operates smoothly even as usage increases over time.
+In conclusion, utility applications like antivirus software, backup tools, and disk cleanup programs play a vital role in computer maintenance and protection. Each type of utility serves a specific purpose, whether it is safeguarding against threats, preserving important data, or optimizing system performance. By using these tools effectively, users can ensure that their computers remain secure, reliable, and efficient.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="IPOS1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="IPOS2.jpg" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>Describe how a student information database can be organized and what data fields it may contain.</h4>
+                            <p>A student information database is a structured system designed to store, manage, and retrieve data related to students efficiently. Such a database is typically organized into tables, with each table representing a specific category of information. The most common approach is a relational database, where tables are connected through unique identifiers, such as a student ID. This structure allows easy access to individual records and ensures data consistency while minimizing redundancy. For instance, a single student table can link to separate tables for courses, grades, attendance, and extracurricular activities, creating a comprehensive system that integrates all relevant information.
+Within the main student table, several data fields are typically included to capture essential details. Common fields include Student ID, which serves as a unique identifier; First Name and Last Name; Date of Birth; Gender; Contact Information, such as phone number and email; and Address. Academic-related fields often include Enrollment Date, Course or Program of Study, and Current Year or Grade Level. Additional fields might track attendance records, grades or GPA, and disciplinary actions or achievements. Some databases also include optional fields for extracurricular involvement, medical information, or emergency contacts, depending on the institution’s requirements.
+By organizing the database in this way, educational institutions can quickly generate reports, track student progress, and maintain accurate records. The relational structure allows updates in one table—for example, course enrollment—to automatically reflect in related tables, improving efficiency and reducing errors. Properly designed data fields ensure that each student’s record is complete, standardized, and easy to search or analyze.
+In summary, a student information database combines structured tables and well-defined data fields to create an organized, efficient system for managing student information. By carefully designing the tables and selecting the appropriate fields, schools and universities can maintain accurate records, monitor academic performance, and streamline administrative tasks.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="database1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="database2.jpg" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>Explain different network topologies (e.g., star, mesh) and their advantages.</h4>
+                            <p>The star topology arranges all devices so that they are connected to a central hub, switch, or router. This central node acts as the main point of communication, allowing data to flow between connected devices. One of the major advantages of the star topology is its reliability; if one device or cable fails, the rest of the network can still function normally because the connections are independent. It is also easy to set up and manage, making it ideal for small to medium-sized networks such as offices, computer labs, or home networks. Troubleshooting is simplified because the central hub helps isolate network problems. However, the main limitation is that the entire network depends on the central device—if the hub fails, the whole system goes down.
+In contrast, the mesh topology connects every device to multiple other devices, creating a web-like structure. This design allows for multiple pathways for data to travel, making the network extremely reliable. If one connection fails, data can still reach its destination through an alternate route. Because of its redundancy, mesh topology is often used in environments where network uptime is critical, such as military communication systems, large corporations, or smart city infrastructures. Another advantage is improved network performance, since data can choose the fastest or least congested path. Despite its strengths, mesh topology can be more expensive and complex to install due to the large number of cables and connections needed.
+Overall, different network topologies offer different strengths. The star topology is simple, efficient, and easy to manage, while the mesh topology provides high reliability and redundancy. Understanding these topologies helps organizations choose the most suitable design for their needs, ensuring stable, secure, and efficient network communication.
+
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="top1.png" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="top2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						<li class="question-item">
+                            <h4>Discuss an ethical issue in IT (e.g., data privacy) and how the IT Code of Ethics addresses it.</h4>
+                            <p>One of the most pressing ethical issues in the field of Information Technology is data privacy. As technology continues to advance, organizations collect massive amounts of personal information from users—such as their names, locations, browsing behavior, financial details, and even health records. While this data is often used to improve services, it also creates significant risks when it is mishandled, exposed, or used without consent. Data breaches, identity theft, and unauthorized data sharing are now common problems, raising concerns about how much control individuals truly have over their own information. Because of this, IT professionals carry a huge responsibility to protect user data and ensure it is used in ethical and lawful ways.
+The IT Code of Ethics directly addresses these concerns by outlining the professional standards expected from individuals working in the industry. One important principle is respecting confidentiality. IT professionals are expected to safeguard any sensitive information they encounter and avoid disclosing it unless they are legally required to do so. This helps ensure that personal data is not misused or shared carelessly. Another key guideline focuses on integrity and honesty. This means being transparent with users about how their data is collected, stored, and used. It also includes avoiding deceptive practices, such as gathering information without permission or using it for purposes different from what was originally stated.
+The IT Code of Ethics also promotes accountability. Professionals must take responsibility for their decisions and actions, especially when managing data systems. This includes implementing strong security measures, regularly updating systems to prevent breaches, and reporting vulnerabilities as soon as they are discovered. Additionally, the code encourages IT workers to consider the broader impact of their work on society. This helps ensure that technology serves the public good rather than exploiting users.
+Overall, data privacy is a critical ethical issue in the digital age, and the IT Code of Ethics provides a clear framework to help professionals handle it responsibly. By following these guidelines, IT practitioners can protect users, build trust, and contribute to a safer technological environment.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="ethics1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="ethics2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						<li class="question-item">
+                            <h4>Create a simple HTML structure for a personal webpage including headings, paragraphs, and lists</h4>
+                            <p>Creating a simple HTML structure for a personal webpage is one of the first tasks many college students complete when they start learning web development. HTML, which stands for Hypertext Markup Language, provides the basic framework of any website. Even if the webpage is simple, understanding how headings, paragraphs, and lists work is essential because these elements help organize information in a clean and readable way.
+An HTML file usually begins with the DOCTYPE declaration, which tells the web browser what version of HTML the page is using. After that, the main html tag contains all the content of the page. Inside it, the head section includes information that is not directly visible to the user, such as the title of the page. For a personal webpage, the title might be something like “My Portfolio” or “Personal Website.”
+The body section is where all the visible content is placed. Headings, written using h1 to h6 tags, divide the page into sections. For example, an h1 heading might include the student’s name, while h2 headings can introduce sections like “About Me,” “Education,” or “Interests.” Under each heading, paragraphs written with the p tag allow the student to describe themselves, share background information, or talk about future goals.
+Lists are also important when creating a personal webpage. An unordered list is often used for short items like hobbies, skills, or favorite activities. Meanwhile, an ordered list can be used for sequences such as steps in a process or academic accomplishments in chronological order. Each list item is placed within an li tag.
+Even though this structure is simple, it forms the foundation of a functional webpage. By combining headings, paragraphs, and lists, students can present their information clearly and professionally. This basic organization helps beginners gain confidence in working with HTML and sets the stage for more complex web design projects in the future.
+
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="html1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="html2.jpg" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						<li class="question-item">
+                            <h4>Write a CSS style sheet to style a webpage with specific colors, font sizes, and layouts.</h4>
+                            <p>Cascading Style Sheets, commonly known as CSS, is a core technology used in web development to control the appearance and layout of a webpage. While HTML provides the structure and content, CSS is responsible for making the webpage visually appealing. Learning how to create a CSS style sheet is essential for any student or beginner web developer because it allows precise control over colors, font sizes, spacing, and overall layout.
+A CSS style sheet can either be embedded directly into an HTML file or linked as an external file. Using an external CSS file is often preferred for better organization and reusability. When writing CSS, selectors target specific HTML elements, and properties define how those elements should look. For instance, the body selector can set a background color for the entire page, define a default font family, and adjust font size for readability.
+Colors are one of the most noticeable aspects of web design. CSS allows developers to use named colors, hexadecimal codes, RGB values, or even gradients. For example, headings can be styled with a dark blue color while paragraphs can have a softer gray to create contrast and hierarchy. Font sizes are equally important, as they help guide the reader’s attention. Using larger font sizes for headings and smaller sizes for body text makes content easier to scan.
+Layouts in CSS can be managed with properties like margin, padding, display, and position. Modern web design often uses flexbox or grid to create responsive and organized layouts. For instance, a navigation menu can be displayed horizontally using flexbox, while content sections can be arranged in a two-column grid for better visual balance. Additionally, CSS allows customizing links, buttons, and lists to match the overall theme, ensuring consistency across the webpage.
+Overall, writing a CSS style sheet is not just about making a webpage “look pretty”; it is about improving usability, readability, and user experience. By selecting colors thoughtfully, adjusting font sizes for clarity, and designing effective layouts, students can create webpages that are both functional and aesthetically pleasing. Mastering CSS is a key step toward building professional-quality websites and developing strong front-end web development skills.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="css1.png" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="css2.jpg" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+						<li class="question-item">
+                            <h4>Explain the potential impact of Generative AI in a field like healthcare or education and discuss any ethical concerns</h4>
+                            <p>Generative AI is a branch of artificial intelligence that can create new content, such as text, images, and even music, based on patterns learned from existing data. Its potential impact in fields like healthcare and education is significant, offering both exciting opportunities and ethical challenges. In healthcare, generative AI can help in designing personalized treatment plans, generating realistic medical images for training purposes, or even assisting in drug discovery. For instance, AI models can analyze vast amounts of patient data to suggest potential therapies faster than traditional methods, improving both efficiency and outcomes. Similarly, in education, generative AI can create customized learning materials, offer instant tutoring, or develop simulations that help students understand complex concepts more interactively.
+Despite these advantages, ethical concerns must be carefully considered. One major issue is data privacy. Generative AI systems often require large datasets, including sensitive personal information such as medical records or student performance data. Without proper safeguards, there is a risk of exposing private information or using it in ways that were not consented to. Another concern is bias. If the AI is trained on biased datasets, it may produce recommendations or content that reinforce existing inequalities, such as misdiagnosing certain patient groups in healthcare or favoring certain students in education. Additionally, accountability is a critical issue. When AI systems generate outputs, it can be difficult to determine who is responsible if mistakes occur, especially in high-stakes environments like hospitals or classrooms.
+To address these concerns, institutions must implement strict ethical guidelines and transparency measures. Data should be anonymized, AI outputs should be regularly audited for bias, and users must be educated about the limitations of these systems. Generative AI, when used responsibly, has the potential to revolutionize healthcare and education by enhancing efficiency, personalizing experiences, and supporting human decision-making. However, balancing innovation with ethical responsibility is crucial to ensure that the technology benefits everyone fairly and safely. Ultimately, the success of generative AI depends not just on its technical capabilities, but also on the values and safeguards implemented alongside it.
+</p>
+<div class="guide-images">
+    
+    <div class="guide-image-container">
+        <img src="ai1.jpg" alt="Description for image 1" class="guide-image">
+    </div>
+    
+
+    <div class="guide-image-container">
+        <img src="ai2.png" alt="Description for image 2" class="guide-image">
+        
+    </div>
+</div>
+                        </li>
+						
+                    </ul>
+                    
+                    <button class="back-btn" id="backFromGuideBtn">
+                        <i class="fas fa-arrow-left"></i> Back to Portfolio Options
+                    </button>
+                </div>
+                
+               
+                <div class="non-creative-content" id="nonCreativeContent">
+                    <h3><i class="fas fa-clipboard-check"></i> Guide Questions</h3>
+                    
+                    <ul class="question-list">
+                        <li class="question-item">
+                            <h4>1. Concepts and Definitions of Information Systems: Data, Information, and Knowledge</h4>
+                            <p>	Data, information, and knowledge differ in meaning and usefulness: data are raw facts without context, information is processed data that conveys meaning, and knowledge is the understanding gained from interpreting information to guide decisions. Data becomes information when organized and given context, and information becomes knowledge when analyzed and connected with experience.
+</p>
+                        </li>
+                        
+                        <li class="question-item">
+                            <h4>2. Areas of the Computer Science Discipline</h4>
+                            <p>Computer Science includes major areas such as Algorithms, Software Development, Computer System, Artificial Intelligence, Networking, Databases, and Human Computer Interaction. These fields help society by enabling machine learning, connecting people globally, managing data, and making technology user-friendly. Each  area also has unique skills: algorithms require math and logic, software needs programming,  systems focus on hardware, AI uses statistics and learning models, networking requires understanding communication protocols, databases involve data organization, and HCI blends design with user behavior.
+</p>
+                        </li>
+                        
+                        <li class="question-item">
+                            <h4>3. Various Uses of Computer Systems in the Modern World</h4>
+                            <p>Computer systems are widely used across industries for tasks such as data processing, communication, automation, design, and decision-making—seen in healthcare for diagnostics, business for management and finance, education for e-learning, and engineering for simulation and design. They have revolutionized daily life by speeding up work, improving accuracy, enabling global connectivity, and providing convenient access to information and services. In the future, computers will play even bigger roles in areas like artificial intelligence, robotics, smart cities, biotechnology, and advanced automation, offering more intelligent systems that can assist in problem-solving, innovation, and everyday living.
+</p>
+                        </li>
+                        
+                        <li class="question-item">
+                            <h4>4. Algorithm, Pseudocode, and Flowcharting</h4>
+                            <p>	Algorithms provide clear, step-by-step instructions to solve problems efficiently. Pseudocodes and flowcharts help programmers plan these solutions by outlining the logic before writing actual code - pseudocode uses structured, written steps, while flowcharts use symbol arrows to visualize the process. Their main difference is that pseudocode is text-based and focuses on logic structure, while flowcharts are diagram-based and show the flow of actions visually.
+</p>
+                        </li>
+                        
+                        <li class="question-item">
+                            <h4>5. Concept of Number Systems</h4>
+                            <p>	Common number systems used in computing include binary, decimal, octal, and hexadecimal, each representing values in different bases. Conversions between binary, decimal, and hexadecimal follow clear rules—binary values can be grouped into fours to convert easily to hexadecimal, and decimal numbers can be repeatedly divided or multiplied to convert to and from binary. The binary system is essential for computers because digital devices operate using two states, 0 and 1, which directly match the on/off behavior of electronic circuits, making binary the most efficient and reliable way for computers to store and process information.
+</p>
+                        </li>
+                        
+                        <li class="question-item">
+                            <h4>6. Software and Application Concepts: General and Specific Purpose Software</h4>
+							<p>	General-purpose software is designed to perform a wide range of tasks, while specific-purpose software is created to accomplish one particular function. They meet different user needs because general-purpose programs offer flexibility for many activities, such as writing documents or browsing the internet, whereas specific-purpose software focuses on specialized tasks required in certain jobs or industries. Examples of general-purpose software include word processors, spreadsheets, and web browsers, while examples of specific-purpose software include payroll systems, hospital management systems, and point-of-sale programs.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>7. Computer Hardware Concepts: IPOS Devices, Internal and External Parts</h4>
+							<p>The Input-Process-Output-Storage (IPOS) cycle involves input devices to receive data, a processor (CPU) to process and execute instructions, output devices to present results, and storage to save data and programs. Internal hardware, like the CPU, RAM, and motherboard, supports computing by performing calculations, managing memory, and connecting components, while external hardware, such as keyboards, mice, monitors, and printers, allows users to interact with the computer. Each component has a specific function: input devices capture data, the processor executes tasks, output devices display results, and storage retains information for immediate or future use.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>8. Software Application Types: Utilities</h4>
+							<p>	Utility software consists of programs designed to help manage, maintain, and protect a computer system. Each type contributes differently: antivirus software detects and removes malware to ensure security, backup utilities create copies of data to prevent loss, file compression tools reduce file sizes for efficient storage and transfer, and productivity apps enhance efficiency in tasks like organizing, editing, or calculating.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>9. Basic Concepts and Definitions of Data and Database</h4>
+							<p>	A database is an organized collection of data designed to store, manage, and retrieve information efficiently, typically structured in tables with rows and columns. Unlike traditional files, which store data sequentially and separately, databases allow for centralized storage, easier access, and relationships between different data sets. Advantages of using databases include faster data retrieval, reduced redundancy, improved data integrity, easier updates, and the ability to run complex queries to support decision making.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>10. Basic Concepts of Computer Networks: Topology, Scope, Types, and Tools</h4>
+							<p>	Computer networks use different topologies—such as star, bus, ring, and mesh—to connect devices, each suited to specific environments; for example, star is common in offices for easy management, while mesh is used in robust, high-reliability systems. Networks also vary by scope: LANs (Local Area Networks) cover small areas like homes or offices, WANs (Wide Area Networks) span large regions or countries, and others like MANs and PANs serve medium or personal ranges. Common networking tools include routers, switches, modems, cables, and software utilities for monitoring and managing network performance.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>11. Security, Ethics, and Privacy: IT Code of Ethics</h4>
+							<p>Common ethical concerns in IT include data privacy, intellectual property, cybersecurity, and the responsible use of technology. Security and privacy considerations impact technology use by protecting sensitive information, preventing unauthorized access, and ensuring trust between users and systems. The IT Code of Ethics provides guidelines for professionals to act responsibly, maintain integrity, respect users’ rights, and uphold legal and moral standards in the development and use of technology.
+</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>12. HTML Programming</h4>
+							<p>An HTML document has a standard structure that helps the browser understand how to display its content. It starts with the DOCTYPE declaration, followed by the html tag, which contains the head and body sections. The head includes information about the webpage such as the title, metadata, and links to stylesheets, while the body contains all the visible elements like text, images, and buttons. HTML tags are used to organize and structure the webpage by acting as containers that define the purpose of each element. Most tags come in pairs and help arrange headings, paragraphs, links, and different sections of the page. Common HTML tags include heading tags (h1 to h6), the p tag for paragraphs, a for links, img for images, div and span for grouping content, list tags like ul, ol, and li, as well as semantic tags like header, section, and footer. All of these work together to create a clear and well-structured webpage</p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>13. CSS Programming</h4>
+							<p>CSS enhances HTML by adding styling and visual design, allowing web pages to look more organized, attractive, and modern. While HTML is mainly used for structure and content, CSS controls things like colors, fonts, spacing, layout, and overall appearance. The basic components of CSS syntax include a selector, which identifies the HTML element to style, and a declaration block that contains property-and-value pairs that define how the element should look. CSS can be applied in different ways—inline, internal, or external—but using an external stylesheet is the most common and efficient. By applying CSS, developers can improve the look </p>
+                        </li>
+						
+						 <li class="question-item">
+                            <h4>14. Future of Computing: Generative AI and Data Analytics</h4>
+							<p>Generative AI is a type of artificial intelligence capable of creating new content such as text, images, music, or code, based on patterns it has learned from large datasets. This is different from traditional AI, which mainly focuses on recognizing patterns, making predictions, or automating tasks rather than generating original output. Data analytics is transforming industries by helping organizations make smarter decisions through insights gathered from large amounts of data. It improves efficiency, predicts trends, personalizes customer experiences, and even helps companies detect risks or fraud. However, the rise of AI also brings important ethical concerns, such as data privacy, bias in algorithms, job displacement, and the responsible use of AI-generated content. Ensuring transparency, fairness, and accountability is essential as AI becomes more integrated into society.
+</p>
+                        </li>
+						
+						
+                    </ul>
+                    
+                    <button class="back-btn" id="backFromNonCreativeBtn">
+                        <i class="fas fa-arrow-left"></i> Back to Portfolio Options
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Contacts Section -->
+            <section id="contacts" class="content-section">
+                <h2 class="section-title"><i class="fas fa-address-book"></i> Contact Information</h2>
+                
+                
+                <div class="contacts-container">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-title">Email</h3>
+                        <p class="contact-info">yanjon340@gmail.com</p>
+                        <a href="mailto:yanjon340@gmail" class="contact-action">Send Email</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="contact-title">Phone</h3>
+                        <p class="contact-info">09518316408</p>
+                        <a href="tel:+15551234567" class="contact-action">Call Now</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="contact-title">Location</h3>
+                        <p class="contact-info">Canlupao, Tomas Oppus Southern Leyte</p>
+                        <a href="#" class="contact-action">View on Map</a>
+                    </div>
+                    
+                   
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p class="footer-text">&copy; 2023 Enaya Portfolio.</p>
+            <p>Designed with <i class="fas fa-heart" style="color:#f472b6;"></i> by Enaya</p>
+            
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation functionality
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and sections
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Hide any open portfolio content when switching sections
+                    hidePortfolioContent();
+                });
+            });
+            
+            // Portfolio option buttons
+            const showGuideBtn = document.getElementById('showGuideBtn');
+            const showNonCreativeBtn = document.getElementById('showNonCreativeBtn');
+            const backFromGuideBtn = document.getElementById('backFromGuideBtn');
+            const backFromNonCreativeBtn = document.getElementById('backFromNonCreativeBtn');
+            const guideContent = document.getElementById('guideContent');
+            const nonCreativeContent = document.getElementById('nonCreativeContent');
+            const portfolioOptions = document.querySelector('.portfolio-options');
+            
+            function hidePortfolioContent() {
+                guideContent.classList.remove('active');
+                nonCreativeContent.classList.remove('active');
+                if (portfolioOptions) {
+                    portfolioOptions.style.display = 'block';
+                }
+            }
+            
+            function showPortfolioContent(contentToShow) {
+                if (portfolioOptions) {
+                    portfolioOptions.style.display = 'none';
+                }
+                if (contentToShow) {
+                    contentToShow.classList.add('active');
+                }
+            }
+            
+            if (showGuideBtn) {
+                showGuideBtn.addEventListener('click', function() {
+                    showPortfolioContent(guideContent);
+                });
+            }
+            
+            if (showNonCreativeBtn) {
+                showNonCreativeBtn.addEventListener('click', function() {
+                    showPortfolioContent(nonCreativeContent);
+                });
+            }
+            
+            if (backFromGuideBtn) {
+                backFromGuideBtn.addEventListener('click', function() {
+                    hidePortfolioContent();
+                });
+            }
+            
+            if (backFromNonCreativeBtn) {
+                backFromNonCreativeBtn.addEventListener('click', function() {
+                    hidePortfolioContent();
+                });
+            }
+            
+            // Home picture button functionality
+            const homePicBtn = document.getElementById('homePicBtn');
+            if (homePicBtn) {
+                homePicBtn.addEventListener('click', function() {
+                    // Navigate to home/about section
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    
+                    const aboutBtn = document.querySelector('.about-btn');
+                    const aboutSection = document.getElementById('about');
+                    
+                    if (aboutBtn) aboutBtn.classList.add('active');
+                    if (aboutSection) aboutSection.classList.add('active');
+                    hidePortfolioContent();
+                    
+                    alert("Home button clicked! You can replace this picture with your own by adding an <img> tag inside the home-pic-btn div.");
+                });
+            }
+            
+            // Profile logo upload simulation
+            const profileLogo = document.getElementById('profileLogo');
+            if (profileLogo) {
+                profileLogo.addEventListener('click', function() {
+                    alert("Click to upload your logo picture. In a real implementation, this would open a file upload dialog.");
+                });
+            }
+            
+            // Initialize by hiding portfolio content
+            hidePortfolioContent();
+        });
+    </script>
+</body>
+</html>
