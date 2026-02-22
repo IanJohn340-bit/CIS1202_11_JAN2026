@@ -1,41 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Enaya html</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian John Enaya - Portfolio</title>
 </head>
 <body>
     <header>
-        <img src="my-photo.jpg" alt="Portrait of Ian John Enaya" />
-        Ian John Enaya
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <h1>Welcome to my awesome portfolio!</h1>
-    <nav>
-        <ul>
-            <li><a href="#about-me">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-        </ul>
-    </nav>
 
-    <section id="about-me">
-        <h2>About Me</h2>
-        <p>I like cats because they are calm, independent, and always make me feel relaxed when they curl up beside me. I love eating fried food, hate waiting in long lines, and enjoy pairing my favorite fried snacks with a warm bowl of soup.</p>
-    </section>
+    <main>
+        <section id="hero" aria-labelledby="hero-heading">
+            <img src="my-photo.jpg" alt="Portrait of Ian John Enaya" />
+            <h1 id="hero-heading">Ian John Angelo T. Enaya</h1>
+            <p>BSIT First Year | University of San Carlos</p>
+        </section>
 
-    <section id="skills">
-        <h2>My Skills</h2>
-        <ul>
-            <li>Gaming</li>
-            <li>Playing sports</li>
-            <li>Bedrotting</li>
-        </ul>
-    </section>
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
+            <p>I am a student of the University of San Carlos. I like cats because they are calm, independent, and always make me feel relaxed when they curl up beside me. I love eating fried food, hate waiting in long lines, and enjoy pairing my favorite fried snacks with a warm bowl of soup.</p>
+        </section>
 
-    <section id="contacts">
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">My Skills</h2>
+            <ul>
+                <li>Gaming</li>
+                <li>Playing sports</li>
+                <li>Bedrotting</li>
+            </ul>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <article>
+                <h3>Project One</h3>
+                <p>Brief description of the project, technologies used, and outcomes.</p>
+            </article>
+            <article>
+                <h3>Project Two</h3>
+                <p>Brief description of the project, technologies used, and outcomes.</p>
+            </article>
+            <article>
+                <h3>Project Three</h3>
+                <p>Brief description of the project, technologies used, and outcomes.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer id="contact">
         <h2>My Contacts</h2>
         <p>Phone: 09xx-xxx-xxxx</p>
         <p>Email: <a href="mailto:sample@email.com">sample@email.com</a></p>
-    </section>
+        <p>&copy; 2026 Ian John Enaya. All rights reserved.</p>
+    </footer>
 </body>
 </html>
