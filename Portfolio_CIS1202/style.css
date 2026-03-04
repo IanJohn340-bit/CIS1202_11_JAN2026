@@ -1,11 +1,18 @@
 /* ===== CSS Variables for Professional Color Scheme ===== */
 :root {
-    --color-bg: #0f172a;          /* dark blue-gray */
-    --color-surface: #111827;     /* slightly lighter surface */
-    --color-accent: #3b82f6;      /* primary accent (blue) */
-    --color-accent-soft: #1d4ed8; /* darker accent for hover */
-    --color-text: #e5e7eb;        /* main text */
-    --color-text-muted: #9ca3af;  /* muted text */
+    /* Light theme (default) */
+    --color-bg-light: #f9fafb;
+    --color-surface-light: #ffffff;
+    --color-text-light: #111827;
+    --color-text-muted-light: #4b5563;
+
+    /* Dark theme */
+    --color-bg-dark: #0f172a;
+    --color-surface-dark: #111827;
+    --color-accent: #3b82f6;
+    --color-accent-soft: #1d4ed8;
+    --color-text-dark: #e5e7eb;
+    --color-text-muted-dark: #9ca3af;
 }
 
 /* Basic page reset / layout */
@@ -18,12 +25,25 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body.dark-mode {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
 }
 
 header {
-    background-color: var(--color-surface);
+    background-color: var(--color-surface-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body.dark-mode header {
+    background-color: var(--color-surface-dark);
 }
 
 /* ===== Flexbox Nav Bar ===== */
@@ -44,7 +64,7 @@ header {
 
 .main-nav__item a {
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-text-muted-light);
     font-weight: 500;
     padding: 0.5rem 0.75rem; /* clickable area around text */
     border-radius: 999px;
@@ -55,5 +75,32 @@ header {
 .main-nav__item a:focus-visible {
     background-color: var(--color-accent-soft);
     color: #ffffff;
+}
+
+body.dark-mode .main-nav__item a {
+    color: var(--color-text-muted-dark);
+}
+
+/* Dark mode keeps the same hover accent colors */
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+    margin-left: 1.5rem;
+    margin-right: 2rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    background-color: transparent;
+    color: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    background-color: var(--color-accent-soft);
+    color: #ffffff;
+    border-color: transparent;
 }
 
