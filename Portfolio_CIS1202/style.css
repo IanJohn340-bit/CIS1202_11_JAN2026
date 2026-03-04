@@ -1,0 +1,59 @@
+/* ===== CSS Variables for Professional Color Scheme ===== */
+:root {
+    --color-bg: #0f172a;          /* dark blue-gray */
+    --color-surface: #111827;     /* slightly lighter surface */
+    --color-accent: #3b82f6;      /* primary accent (blue) */
+    --color-accent-soft: #1d4ed8; /* darker accent for hover */
+    --color-text: #e5e7eb;        /* main text */
+    --color-text-muted: #9ca3af;  /* muted text */
+}
+
+/* Basic page reset / layout */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+header {
+    background-color: var(--color-surface);
+}
+
+/* ===== Flexbox Nav Bar ===== */
+.main-nav {
+    padding: 1rem 2rem; /* Box model: space INSIDE the nav */
+}
+
+.main-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-evenly; /* even spacing for all links */
+    align-items: center;
+    gap: 1.5rem; /* extra gap for wide screens */
+}
+
+.main-nav__item a {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    padding: 0.5rem 0.75rem; /* clickable area around text */
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:focus-visible {
+    background-color: var(--color-accent-soft);
+    color: #ffffff;
+}
+
