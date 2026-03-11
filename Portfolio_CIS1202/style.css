@@ -59,7 +59,7 @@ body.dark-mode header {
     display: flex;
     justify-content: space-evenly; /* even spacing for all links */
     align-items: center;
-    gap: 1.5rem; /* extra gap for wide screens */
+    gap: 20px;
 }
 
 .main-nav__item a {
@@ -82,6 +82,16 @@ body.dark-mode .main-nav__item a {
 }
 
 /* Dark mode keeps the same hover accent colors */
+
+/* ===== Profile Picture ===== */
+.profile-pic {
+    width: 160px;
+    height: 160px; /* equal width + height */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
 
 /* ===== Theme Toggle Button ===== */
 .theme-toggle {
