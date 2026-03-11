@@ -62,26 +62,40 @@ body.dark-mode header {
     gap: 20px;
 }
 
-.main-nav__item a {
-    text-decoration: none;
+.main-nav__tab {
+    appearance: none;
+    border: none;
+    background: transparent;
+    font: inherit;
+
     color: var(--color-text-muted-light);
     font-weight: 500;
     padding: 0.5rem 0.75rem; /* clickable area around text */
     border-radius: 999px;
+    cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.main-nav__item a:hover,
-.main-nav__item a:focus-visible {
+.main-nav__tab:hover,
+.main-nav__tab:focus-visible {
     background-color: var(--color-accent-soft);
     color: #ffffff;
 }
 
-body.dark-mode .main-nav__item a {
+body.dark-mode .main-nav__tab {
     color: var(--color-text-muted-dark);
 }
 
 /* Dark mode keeps the same hover accent colors */
+
+.main-nav__tab[aria-selected="true"] {
+    background-color: var(--color-accent);
+    color: #ffffff;
+}
+
+main {
+    padding: 2rem;
+}
 
 /* ===== Profile Picture ===== */
 .profile-pic {

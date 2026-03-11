@@ -9,12 +9,32 @@
 <body>
     <header>
         <nav class="main-nav" aria-label="Main navigation">
-            <ul class="main-nav__list">
-                <li class="main-nav__item"><a href="#hero">Home</a></li>
-                <li class="main-nav__item"><a href="#about">About</a></li>
-                <li class="main-nav__item"><a href="#skills">Skills</a></li>
-                <li class="main-nav__item"><a href="#projects">Projects</a></li>
-                <li class="main-nav__item"><a href="#contact">Contact</a></li>
+            <ul class="main-nav__list" role="tablist" aria-label="Portfolio sections">
+                <li class="main-nav__item">
+                    <button class="main-nav__tab" type="button" role="tab" aria-selected="true" aria-controls="panel-hero" data-tab="hero">
+                        Home
+                    </button>
+                </li>
+                <li class="main-nav__item">
+                    <button class="main-nav__tab" type="button" role="tab" aria-selected="false" aria-controls="panel-about" tabindex="-1" data-tab="about">
+                        About
+                    </button>
+                </li>
+                <li class="main-nav__item">
+                    <button class="main-nav__tab" type="button" role="tab" aria-selected="false" aria-controls="panel-skills" tabindex="-1" data-tab="skills">
+                        Skills
+                    </button>
+                </li>
+                <li class="main-nav__item">
+                    <button class="main-nav__tab" type="button" role="tab" aria-selected="false" aria-controls="panel-projects" tabindex="-1" data-tab="projects">
+                        Projects
+                    </button>
+                </li>
+                <li class="main-nav__item">
+                    <button class="main-nav__tab" type="button" role="tab" aria-selected="false" aria-controls="panel-contact" tabindex="-1" data-tab="contact">
+                        Contact
+                    </button>
+                </li>
             </ul>
         </nav>
         <button type="button" class="theme-toggle" onclick="toggleDarkMode()">
@@ -23,18 +43,18 @@
     </header>
 
     <main>
-        <section id="hero" aria-labelledby="hero-heading">
+        <section id="panel-hero" role="tabpanel" aria-labelledby="hero-heading" data-panel="hero">
             <img class="profile-pic" src="picme.jpg" />
             <h1 id="hero-heading"><b>ian john angelo t. enaya</b></h1>
             <p>BSIT First Year | University of San Carlos</p>
         </section>
 
-        <section id="about" aria-labelledby="about-heading">
+        <section id="panel-about" role="tabpanel" aria-labelledby="about-heading" data-panel="about" hidden>
             <h2 id="about-heading">About Me</h2>
             <p>I am a student of the University of San Carlos. I like cats because they are calm, independent, and always make me feel relaxed when they curl up beside me. I love eating fried food, hate waiting in long lines, and enjoy pairing my favorite fried snacks with a warm bowl of soup.</p>
         </section>
 
-        <section id="skills" aria-labelledby="skills-heading">
+        <section id="panel-skills" role="tabpanel" aria-labelledby="skills-heading" data-panel="skills" hidden>
             <h2 id="skills-heading">My Skills</h2>
             <ul>
                 <li>Gaming</li>
@@ -43,7 +63,7 @@
             </ul>
         </section>
 
-        <section id="projects" aria-labelledby="projects-heading">
+        <section id="panel-projects" role="tabpanel" aria-labelledby="projects-heading" data-panel="projects" hidden>
             <h2 id="projects-heading">Projects</h2>
             <article>
                 <h3>Project One</h3>
@@ -58,12 +78,15 @@
                 <p>Brief description of the project, technologies used, and outcomes.</p>
             </article>
         </section>
+
+        <section id="panel-contact" role="tabpanel" aria-labelledby="contact-heading" data-panel="contact" hidden>
+            <h2 id="contact-heading">My Contacts</h2>
+            <p>Phone: 09xx-xxx-xxxx</p>
+            <p>Email: <a href="mailto:sample@email.com">sample@email.com</a></p>
+        </section>
     </main>
 
-    <footer id="contact">
-        <h2>My Contacts</h2>
-        <p>Phone: 09xx-xxx-xxxx</p>
-        <p>Email: <a href="mailto:sample@email.com">sample@email.com</a></p>
+    <footer>
         <p>&copy; 2026 Ian John Enaya. All rights reserved.</p>
     </footer>
 
